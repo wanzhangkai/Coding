@@ -7,10 +7,10 @@ import java.util.List;
  * @date 2018/1/25 21:04
  */
 public class Employee {
-    static List<Employee> allEmployees;
+    public static List<Employee> allEmployees;
 
-    String name;
-    int salary;
+    private final String name;
+    private final int salary;
 
     public Employee(String name, int salary) { //构造函数的作用，让用户给出规定的参数
         this.name = name;
@@ -25,11 +25,11 @@ public class Employee {
         this(name, 0);  //调用自己类里面的构造函数
     }
 
-    void doWork() {
+    public void doWork() {
 
     }
 
-    void getPaid(BankEndPoint bank) {
+    public void getPaid(BankEndPoint bank) {
         bank.payment(name, salary);
     }
 
@@ -63,9 +63,22 @@ public class Employee {
                 '}';
     }
 
-    static void loadAllEmployees() {   //static中无法用this
-        //Loads all employees from db.
-
+    public String getName() {
+        return name;
     }
 
+
+
+    public int getSalary() {
+        return salary;
+    }
+
+
+
+    //Package private for logic in the package
+    //when employees are loaded.
+    //默认就是包内部私有，package private
+    static void loadAllEmployees() {   //static中无法用this
+        //Loads all employees from db.
+    }
 }

@@ -13,7 +13,8 @@ import java.util.Arrays;
 public class LinkedListDeleter {
 
     //删除链表中的节点，根据输入的value
-    public Node deleteNodeIfEqualsValue(Node head, int value) {
+    //这里public后面声明了一下<T>，来保证Node<T>和T是一致的类型
+    public <T> Node<T> deleteNodeIfEqualsValue(Node<T> head, T value) {
         while (head != null && head.getValue() == value) {  //判断头节点是否等于value
             head = head.getNext();
         }

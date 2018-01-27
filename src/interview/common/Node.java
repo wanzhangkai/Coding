@@ -6,29 +6,29 @@ package interview.common;
  * @author wanzhangkai@foxmail.com
  * @date 2018/1/12 16:13
  */
-public class Node {
+public class Node<T> {
 
-    private final int value;
-    private Node next;
+    private final T value;
+    private Node<T> next;
 
-    public Node(int value) {
+    public Node(T value) {
         this.value = value;
         this.next = null;
     }
 
-    public int getValue() {
+    public T getValue() {
         return value;
     }
 
-    public Node getNext() {
+    public Node<T> getNext() {
         return next;
     }
 
-    public void setNext(Node next) {
+    public void setNext(Node<T> next) {
         this.next = next;
     }
 
-    public static void printLinkedList(Node head) {
+    public static <T> void printLinkedList(Node<T> head) {
         while (head != null) {
             System.out.print(head.getValue());
             System.out.print(" ");

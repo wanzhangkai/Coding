@@ -10,8 +10,7 @@ public class Tester {
     public static void main(String[] args) {
         Employee employee1 = new Employee("John", 10000);
         Employee employee2 = new Employee("Mary", 20000);
-        Employee employee3 = new Employee("John");
-        employee3.salary = 10000;
+        Employee employee3 = new Employee("John", 10000);
 
         System.out.println("employee1 == employee3 ？"
                 + (employee1 == employee3));   //new了两个，当然不是同一个对象
@@ -29,9 +28,19 @@ public class Tester {
         employees.add(employee2);
         employees.add(employee3);
         System.out.println("Print using for each:");
-        for (Employee e : employees){
+        for (Employee e : employees) {
             System.out.println(e);
         }
+
+        System.out.println("Testing managers");
+        Manager manager = new Manager("Tony", 100000);
+        Employee manager1 = new Manager("Tonny", 90000);
+        employees.add(manager);
+        employees.add(manager1);
+        for (Employee employee : employees) {
+            System.out.println(employee);
+        }
+
 
     }
 }
