@@ -12,7 +12,7 @@ public class Tester {
         //CodingTask外面装饰了2层其他功能。
         new LoggingRunnable(
                 new TransactionalRunnable(
-                        new CodingTask())).run();
+                        new CodingTask(0))).run();
 
     }
 }
