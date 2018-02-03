@@ -10,19 +10,19 @@ public class TreeNode {
     private TreeNode right;
     private TreeNode parent;
 
-    public TreeNode getParent() {
-        return parent;
-    }
-
-    private void setParent(TreeNode parent) {
-        this.parent = parent;
-    }
-
     public TreeNode(char value) {
         this.value = value;
         this.left = null;
         this.right = null;
         this.parent = null;
+    }
+
+    public TreeNode getParent() {
+        return parent;
+    }
+
+    private void setParent(TreeNode parent) {     //setParent被private
+        this.parent = parent;
     }
 
     public char getValue() {
