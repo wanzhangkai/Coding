@@ -22,7 +22,7 @@ public class LoggingRunnable implements Runnable {
         innerRunnable.run();
 
         System.out.println("Task finished. Elapsed time: "
-                + (System.currentTimeMillis() - startTime));
+                + ((double)(System.currentTimeMillis() - startTime)/1000)+"s");
     }
 
 }

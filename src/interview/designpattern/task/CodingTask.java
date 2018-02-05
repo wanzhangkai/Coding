@@ -16,7 +16,7 @@ public class CodingTask implements Runnable {
     public void run() {
         System.out.println("Employee " + employeeId + " started writing code.");
         try {
-            Thread.sleep(5000);
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);   //包装成RuntimeException抛出，偷懒的办法
         }

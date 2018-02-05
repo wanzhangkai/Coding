@@ -1,20 +1,18 @@
-package data_structure_and_algorithms.sorting_basic.selection_sorting;
+package data_structure_and_algorithms.sorting_basic;
 
 import data_structure_and_algorithms.common.SortTestHelper;
-
-import java.util.Arrays;
 
 /**
  * 选择排序：
  * 每次从未排序的数组中选取最小的元素，放到未排序的最前面。
- * 复杂度：O(n*n)
+ * 复杂度：O(n^2)
  *
  * @author wanzhangkai@foxmail.com
  * @date 2018/2/4 14:27
  */
 public class SelectionSort {
 
-    //面试手撸代码版
+    //int版
     public static void sortSimple(int[] arr) {
         int n = arr.length;
         for (int i = 0; i < n; i++) {
@@ -34,18 +32,17 @@ public class SelectionSort {
         arr[minIndex] = tem;
     }
 
-
-    //Comparable版，通用
+    //Comparable版，通用版
     public static void sort(Comparable[] arr) {
         int n = arr.length;
         for (int i = 0; i < n; i++) {
             int minIndex = i;
             for (int j = i + 1; j < n; j++) {
-                if (arr[j].compareTo(arr[minIndex]) < 0) {
+                if (arr[j].compareTo(arr[minIndex]) < 0) {    //找到最小的元素
                     minIndex = j;
                 }
             }
-            swap(arr, i, minIndex);
+            swap(arr, i, minIndex);   //交换第i个元素与当前最小的元素
         }
     }
 
@@ -89,17 +86,11 @@ public class SelectionSort {
         }
 
         //排序随机序列
-        int n = 1000;
+        int n = 100000;
         Integer[] e = SortTestHelper.generateRandomArray(n, 0, n);
-        for (int i = 0; i < e.length; i++) {
-            System.out.print(e[i] + " ");
-        }
-        System.out.println();
-        SelectionSort.sort(e);
-        for (int i = 0; i < e.length; i++) {
-            System.out.print(e[i] + " ");
-        }
-        System.out.println();
+        SortTestHelper.printArray(e);
+
+        SortTestHelper.testSort(e);
 
     }
 

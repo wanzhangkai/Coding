@@ -1,6 +1,7 @@
-package data_structure_and_algorithms.sorting_basic.selection_sorting;
+package data_structure_and_algorithms.sorting_basic;
 
 /**
+ * 排序对象类
  * @author wanzhangkai@foxmail.com
  * @date 2018/2/4 22:17
  */
