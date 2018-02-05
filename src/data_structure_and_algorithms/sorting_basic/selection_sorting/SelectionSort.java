@@ -1,5 +1,7 @@
 package data_structure_and_algorithms.sorting_basic.selection_sorting;
 
+import data_structure_and_algorithms.common.SortTestHelper;
+
 import java.util.Arrays;
 
 /**
@@ -47,13 +49,13 @@ public class SelectionSort {
         }
     }
 
-
     private static void swap(Object[] arr, int i, int minIndex) { //注意这里arr的类型变为通用的Object
         Object tem = arr[i];
         arr[i] = arr[minIndex];
         arr[minIndex] = tem;
     }
 
+    //测试案例
     public static void main(String[] args) {
         int[] a = {1, 2, 3, 4, 5};
         SelectionSort.sortSimple(a);
@@ -77,22 +79,27 @@ public class SelectionSort {
         System.out.println();
 
         Student[] d = new Student[]{
-                new Student("D",90),
-                new Student("A",90),
-                new Student("C",90),
-                new Student("B",90)};
+                new Student("D", 90),
+                new Student("A", 90),
+                new Student("C", 90),
+                new Student("B", 90)};
         SelectionSort.sort(d);
         for (int i = 0; i < d.length; i++) {
             System.out.println(d[i]);
         }
 
-
-
-
-
-
-
-
+        //排序随机序列
+        int n = 1000;
+        Integer[] e = SortTestHelper.generateRandomArray(n, 0, n);
+        for (int i = 0; i < e.length; i++) {
+            System.out.print(e[i] + " ");
+        }
+        System.out.println();
+        SelectionSort.sort(e);
+        for (int i = 0; i < e.length; i++) {
+            System.out.print(e[i] + " ");
+        }
+        System.out.println();
 
     }
 

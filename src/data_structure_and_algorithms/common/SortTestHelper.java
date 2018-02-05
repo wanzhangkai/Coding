@@ -15,9 +15,10 @@ public class SortTestHelper {
         //assert，当内容为true时继续执行，为false时停止执行。
 
         Integer[] arr = new Integer[n];
-
+        //随机序列的写法
         for (int i = 0; i < n; i++) {
             arr[i] = (int)(Math.random()*(rangeR-rangeL+1)+rangeL); //java自动装箱
+            //random（）在java中是0.***的小数。
         }
         return arr;
     }
