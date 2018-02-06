@@ -18,14 +18,14 @@ public class ShellSort {
 
         while (h > 0) {
             h = h / 2;  //间隙每次取1/2
-            for (int i = h; i < arr.length; i++) {  //分了d组
+            for (int i = h; i < arr.length; i++) {  //分了h组
                 // 对 arr[i], arr[i-h], arr[i-2*h], arr[i-3*h]... 使用插入排序
                 Comparable e = arr[i];
                 int j = i;
                 for (; j >= h && e.compareTo(arr[j - h]) < 0; j -= h) {
                     arr[j] = arr[j - h];
                 }
-                arr[j] = e;
+                arr[j] = e;   //跳出上层for后，j已经等于j-h一次了，所以这里表达式为arr[j]=e
             }
         }
     }
@@ -52,7 +52,6 @@ public class ShellSort {
             }
             h /= 3;
         }
-
     }
 
 }
