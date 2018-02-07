@@ -11,12 +11,12 @@ public class Tester {
 
     public static void main(String[] args) {
 
-        int N = 5000000;
+        int N = 100000;
         System.out.println("Test for random array, size = " + N
         + " , random range [0, " + N + "]" );
 
-        Integer[] arr1 = SortTestHelper.generateRandomArray(N, 0, N);
-//        Integer[] arr1 = SortTestHelper.generateNearOrderedArray(N, 10);  //对于近乎有序的数组排序，插入排序/希尔排序会变得相当快
+        Integer[] arr1 = SortTestHelper.generateRandomArray(N, 0, 10);
+//        Integer[] arr1 = SortTestHelper.generateNearOrderedArray(N, 1000);  //对于近乎有序的数组排序，插入排序/希尔排序会变得相当快
 
         Integer[] arr2 = Arrays.copyOf(arr1, arr1.length);  //复制一个相同数组
         Integer[] arr3 = Arrays.copyOf(arr1, arr1.length);

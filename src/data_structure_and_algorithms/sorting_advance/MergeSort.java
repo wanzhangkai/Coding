@@ -71,5 +71,4 @@ public class MergeSort {
             arr[j] = e;
         }
     }
-
 }

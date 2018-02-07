@@ -1,15 +1,10 @@
 package data_structure_and_algorithms.sorting_advance;
 
 /**
- * 快速排序
- * 不优化的话，当测试用例为近乎有序的数组时，
- * 快速排序很有可能会栈溢出，因为它一直以前面小的元素为分界点，
- * 栈会不够用。此时它的复杂度退化为O(n^2)。
- *
  * @author wanzhangkai@foxmail.com
- * @date 2018/2/6 21:39
+ * @date 2018/2/7 23:06
  */
-public class QuickSort {
+public class QuickSortOp {
 
     public static void sort(Comparable[] arr) {
         quickSort(arr, 0, arr.length - 1);
@@ -30,25 +25,14 @@ public class QuickSort {
         quickSort(arr, p + 1, r);
     }
 
-    //对arr[l...r]部分进行partition操作
-    //返回p，使得arr[l..p-1] < arr[p], arr[p+1...r] > arr[p]
     private static int partition(Comparable[] arr, int l, int r) {
 
         swap(arr, 1, (int) (Math.random() * (r - l + 1)) + 1);
-        //优化处理，取范围内的随机Index与l位交换，解决近乎有序的序列的问题，也不会栈溢出
-
         Comparable v = arr[l];
 
-        //arr[l+1...j] < v ; arr[j+1...i] > v
-        int j = l;
-        for (int i = l + 1; i <= r; i++) {
-            if (arr[i].compareTo(v) < 0) {
-                swap(arr, j + 1, i);
-                j++;
-            }
-        }
-        swap(arr, l, j);
-        return j;
+
+
+
     }
 
     private static void swap(Comparable[] arr, int a, int b) {
@@ -67,5 +51,4 @@ public class QuickSort {
             arr[j] = e;
         }
     }
-
 }
