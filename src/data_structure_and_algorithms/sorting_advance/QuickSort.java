@@ -1,8 +1,10 @@
 package data_structure_and_algorithms.sorting_advance;
 
+import data_structure_and_algorithms.sorting_basic.InsertionSort;
+
 /**
  * 快速排序
- * 不优化的话，当测试用例为近乎有序的数组时，
+ * 不优化的话，当测试用例为近乎有序的数组或者存在大量重复的元素时，
  * 快速排序很有可能会栈溢出，因为它一直以前面小的元素为分界点，
  * 栈会不够用。此时它的复杂度退化为O(n^2)。
  *
@@ -20,8 +22,8 @@ public class QuickSort {
             return;
         }
 
-        if (r + l <= 15) {   //跟归并排序优化一样，当元素小于16个时才用插入排序
-            insertionSort(arr, l, r);
+        if (r - l <= 15) {   //跟归并排序优化一样，当元素小于16个时才用插入排序
+            InsertionSort.sort(arr, l, r);
             return;
         }
 
@@ -34,7 +36,7 @@ public class QuickSort {
     //返回p，使得arr[l..p-1] < arr[p], arr[p+1...r] > arr[p]
     private static int partition(Comparable[] arr, int l, int r) {
 
-        swap(arr, 1, (int) (Math.random() * (r - l + 1)) + 1);
+        swap(arr, l, (int) (Math.random() * (r - l + 1)) + l);
         //优化处理，取范围内的随机Index与l位交换，解决近乎有序的序列的问题，也不会栈溢出
 
         Comparable v = arr[l];
@@ -55,17 +57,6 @@ public class QuickSort {
         Comparable temp = arr[a];
         arr[a] = arr[b];
         arr[b] = temp;
-    }
-
-    private static void insertionSort(Comparable[] arr, int l, int r) {
-        for (int i = l + 1; i <= r; i++) {
-            Comparable e = arr[i];
-            int j;
-            for (j = i; j > l && arr[j - 1].compareTo(e) > 0; j--) {
-                arr[j] = arr[j - 1];
-            }
-            arr[j] = e;
-        }
     }
 
 }

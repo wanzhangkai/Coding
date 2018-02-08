@@ -13,6 +13,9 @@ package data_structure_and_algorithms.sorting_basic;
  */
 public class InsertionSort {
 
+    private InsertionSort(){}
+
+    // 对整个arr数组使用InsertionSort排序
     public static void sort(Comparable[] arr) {
         for (int i = 0; i < arr.length; i++) {
             Comparable e = arr[i];  //等待排序的元素
@@ -21,6 +24,18 @@ public class InsertionSort {
                 arr[j] = arr[j - 1];   //前面元素赋值给后面
             }
             arr[j] = e;   //将这个等待的e赋值到找好的位置
+        }
+    }
+
+    //对arr[l...r]的区间使用InsertionSort排序
+    public static void sort(Comparable[] arr, int l, int r) {
+        for (int i = l + 1; i <= r; i++) {
+            Comparable e = arr[i];
+            int j;
+            for (j = i; j > l && arr[j - 1].compareTo(e) > 0; j--) {
+                arr[j] = arr[j - 1];
+            }
+            arr[j] = e;
         }
     }
 
