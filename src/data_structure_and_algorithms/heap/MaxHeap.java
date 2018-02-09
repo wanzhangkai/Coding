@@ -45,6 +45,18 @@ public class MaxHeap<Item extends Comparable> {
         data[j] = t;
     }
 
+    // 从最大堆中取出堆顶元素, 即堆中所存储的最大数据
+    public Item extractMax() {
+        assert count > 0;
+        Item ret = data[1];
+
+        swap(1, count);
+        count--;
+        shiftDown(1);   //移动堆顶元素
+
+        return ret;
+    }
+
     //********************
     //* 最大堆核心辅助函数
     //********************
@@ -56,15 +68,45 @@ public class MaxHeap<Item extends Comparable> {
         }
     }
 
+    private void shiftDown(int k) {
+
+        while (2 * k <= count) {
+            int j = 2 * k; // 在此轮循环中,data[k]和data[j]交换位置
+            if (j + 1 <= count && data[j + 1].compareTo(data[j]) > 0) {
+                j++;
+            }
+            // data[j] 是 data[2*k]和data[2*k+1]中的最大值
+
+            if (data[k].compareTo(data[j]) >= 0) {
+                break;
+            }
+            swap(k, j);
+            k = j;
+        }
+    }
+
+
     // 测试 MaxHeap
     public static void main(String[] args) {
 
-        MaxHeap<Integer> maxHeap = new MaxHeap<Integer>(100);
-        int N = 50; // 堆中元素个数
+        MaxHeap<Integer> maxHeap = new MaxHeap<>(100);
+        int N = 100; // 堆中元素个数
         int M = 100; // 堆中元素取值范围[0, M)
         for (int i = 0; i < N; i++)
             maxHeap.insert(new Integer((int) (Math.random() * M)));
-        System.out.println(maxHeap.size());
+
+        Integer[] arr = new Integer[N];
+        // 将maxheap中的数据逐渐使用extractMax取出来
+        // 取出来的顺序应该是按照从大到小的顺序取出来的
+        for (int i = 0; i < N; i++) {
+            arr[i] = maxHeap.extractMax();
+            System.out.print(arr[i] + " ");
+        }
+        System.out.println();
+
+        // 确保arr数组是从大到小排列的
+        for (int i = 1; i < N; i++)
+            assert arr[i - 1] >= arr[i];
     }
 
 }
