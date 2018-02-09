@@ -6,10 +6,10 @@ import data_structure_and_algorithms.sorting_basic.InsertionSort;
  * @author wanzhangkai@foxmail.com
  * @date 2018/2/7 23:06
  */
-public class QuickSortOp {
+public class QuickSort2 {
 
     //私有化构造函数，不允许产生实例
-    private QuickSortOp() {
+    private QuickSort2() {
     }
 
     public static void sort(Comparable[] arr) {
@@ -17,9 +17,9 @@ public class QuickSortOp {
     }
 
     private static void quickSort(Comparable[] arr, int l, int r) {
-//        if (l >= r) {
-//            return;
-//        }
+        if (l >= r) {
+            return;
+        }
 
         if (r - l <= 15) {   //跟归并排序优化一样，当元素小于16个时才用插入排序
             InsertionSort.sort(arr, l, r);

@@ -5,7 +5,7 @@ import data_structure_and_algorithms.sorting_basic.InsertionSort;
 /**
  * 快速排序
  * 不优化的话，当测试用例为近乎有序的数组或者存在大量重复的元素时，
- * 快速排序很有可能会栈溢出，因为它一直以前面小的元素为分界点，
+ * 快速排序很有可能速度变慢，因为它一直以前面小的元素为分界点，
  * 栈会不够用。此时它的复杂度退化为O(n^2)。
  *
  * @author wanzhangkai@foxmail.com
