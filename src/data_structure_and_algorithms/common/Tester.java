@@ -12,11 +12,11 @@ public class Tester {
 
     public static void main(String[] args) {
 
-        int N = 100000;
+        int N = 1000000;
         System.out.println("Test for random array, size = " + N
                 + " , random range [0, " + N + "]");
 
-        Integer[] arr1 = SortTestHelper.generateRandomArray(N, 0, 10);
+        Integer[] arr1 = SortTestHelper.generateRandomArray(N, 0, N);
 //        Integer[] arr1 = SortTestHelper.generateNearOrderedArray(N, 0);  //对于近乎有序的数组排序，插入排序/希尔排序会变得相当快
 
         Integer[] arr2 = Arrays.copyOf(arr1, arr1.length);  //复制一个相同数组
@@ -29,6 +29,8 @@ public class Tester {
         Integer[] arr9 = Arrays.copyOf(arr1, arr1.length);
         Integer[] arr10 = Arrays.copyOf(arr1, arr1.length);
         Integer[] arr11 = Arrays.copyOf(arr1, arr1.length);
+        Integer[] arr12 = Arrays.copyOf(arr1, arr1.length);
+        Integer[] arr13 = Arrays.copyOf(arr1, arr1.length);
 
 
 //        SortTestHelper.printArray(arr1);
@@ -75,5 +77,12 @@ public class Tester {
         SortTestHelper.testSort0("data_structure_and_algorithms.sorting_advance.QuickSort3Ways", arr11);
 //        SortTestHelper.printArray(arr11);
 
+//                SortTestHelper.printArray(arr12);
+        SortTestHelper.testSort0("data_structure_and_algorithms.heap.HeapSort1", arr12);
+//        SortTestHelper.printArray(arr12);
+
+//        SortTestHelper.printArray(arr13);
+        SortTestHelper.testSort0("data_structure_and_algorithms.heap.HeapSort2", arr13);
+//        SortTestHelper.printArray(arr13);
     }
 }
