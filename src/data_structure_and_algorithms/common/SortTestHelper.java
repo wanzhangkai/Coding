@@ -41,16 +41,14 @@ public class SortTestHelper {
             arr[i] = i;
         }
         for (int i = 0; i < swapTimes; i++) {
-            int a = (int) (Math.random()*n);  //随机选取一个位置a
-            int b = (int) (Math.random()*n);  //随机选取一个位置b
+            int a = (int) (Math.random() * n);  //随机选取一个位置a
+            int b = (int) (Math.random() * n);  //随机选取一个位置b
             int t = arr[a];     //交换位置a与b上的元素
             arr[a] = arr[b];
             arr[b] = t;
         }
         return arr;
     }
-
-
 
     //打印数组
     public static void printArray(Object arr[]) {

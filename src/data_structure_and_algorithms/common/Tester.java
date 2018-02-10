@@ -31,6 +31,7 @@ public class Tester {
         Integer[] arr11 = Arrays.copyOf(arr1, arr1.length);
         Integer[] arr12 = Arrays.copyOf(arr1, arr1.length);
         Integer[] arr13 = Arrays.copyOf(arr1, arr1.length);
+        Integer[] arr14 = Arrays.copyOf(arr1, arr1.length);
 
 
 //        SortTestHelper.printArray(arr1);
@@ -84,5 +85,9 @@ public class Tester {
 //        SortTestHelper.printArray(arr13);
         SortTestHelper.testSort0("data_structure_and_algorithms.heap.HeapSort2", arr13);
 //        SortTestHelper.printArray(arr13);
+
+//        SortTestHelper.printArray(arr14);
+        SortTestHelper.testSort0("data_structure_and_algorithms.heap.HeapSort", arr14);
+//        SortTestHelper.printArray(arr14);
     }
 }

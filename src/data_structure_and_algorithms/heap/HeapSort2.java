@@ -2,7 +2,7 @@ package data_structure_and_algorithms.heap;
 
 /**
  * 堆排-方式二
- * 换一种建树方式
+ * 换一种建树方式:将整个数组输入直接建树
  * 堆排序主要用于动态数据的维护，速度方面不如归并和快排
  *
  * @author wanzhangkai@foxmail.com

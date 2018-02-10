@@ -4,7 +4,6 @@ package data_structure_and_algorithms.heap;
  * 堆排-方式一
  * 先建空堆，再一个个按顺序插入元素并且每次都shiftUp
  *
- *
  * @author wanzhangkai@foxmail.com
  * @date 2018/2/10 14:40
  */
