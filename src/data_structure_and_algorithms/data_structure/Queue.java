@@ -10,7 +10,7 @@ public class Queue {
 
     private int[] queue;
     private int head;
-    public int size;
+    private int size;
 
     public Queue(int n) {
         queue = new int[n];
