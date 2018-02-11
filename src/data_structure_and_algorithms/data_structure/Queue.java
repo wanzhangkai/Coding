@@ -18,6 +18,10 @@ public class Queue {
         this.size = 0;
     }
 
+    public int getSize(){
+        return size;
+    }
+
     public boolean isEmpty() {
         return size == 0;
     }
@@ -31,13 +35,15 @@ public class Queue {
         if (isFull()) {
             throw new RuntimeException("队列已满");
         }
+        if (isEmpty()) {
+            head = 0;
+        }
         size++;
         queue[size - 1] = data;
     }
 
     public int pop() {
         if (isEmpty()) {
-            head = 0;
             throw new RuntimeException("队列为空");
         }
         size--;
@@ -56,6 +62,14 @@ public class Queue {
         }
         System.out.println();
         System.out.println(myQueue.size);
+        for (int i = 0; i < 10; i++) {
+            myQueue.push(i);
+        }
+        System.out.println(myQueue.size);
+        for (int i = 0; i < 10; i++) {
+            System.out.print(myQueue.pop() + " ");
+        }
+
     }
 
 }
