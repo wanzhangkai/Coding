@@ -8,12 +8,12 @@ package data_structure_and_algorithms.data_structure;
  */
 public class Stack {
 
-    private int[] stack;
+    private Object[] stack;
     private int top;
     private int size;
 
     public Stack(int n) {
-        stack = new int[n];
+        stack = new Object[n];
         this.top = 0;
         this.size = 0;
     }
@@ -30,7 +30,7 @@ public class Stack {
         return size;
     }
 
-    public void push(int data) {
+    public void push(Object data) {
         if (isFull()) {
             throw new RuntimeException("栈溢出");
         }
@@ -39,7 +39,7 @@ public class Stack {
         top = size - 1;
     }
 
-    public int pop() {
+    public Object pop() {
         if (isEmpty()) {
             top = 0;
             throw new RuntimeException("栈为空");

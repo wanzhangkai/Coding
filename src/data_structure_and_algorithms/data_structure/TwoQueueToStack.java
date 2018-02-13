@@ -16,7 +16,7 @@ public class TwoQueueToStack {
         queue2 = new Queue(n);
     }
 
-    public void push(int data) {
+    public void push(Object data) {
         if (queue1.isFull()) {
             throw new RuntimeException("栈溢出");
         }
@@ -26,7 +26,7 @@ public class TwoQueueToStack {
         queue1.push(data);
     }
 
-    public int pop() {
+    public Object pop() {
         if (queue1.isEmpty() && queue2.isEmpty()) {
             throw new RuntimeException("栈为空");
         }

@@ -17,7 +17,7 @@ public class TwoStackToQueue {
         stack2 = new Stack(n);
     }
 
-    public void push(int data) {
+    public void push(Object data) {
         if (stack1.isFull() && stack2.isFull()) {
             throw new RuntimeException("队列已满");
         }
@@ -29,7 +29,7 @@ public class TwoStackToQueue {
         stack1.push(data);
     }
 
-    public int pop() {
+    public Object pop() {
         if (stack1.isEmpty() && stack2.isEmpty()) {
             throw new RuntimeException("队列为空");
         }

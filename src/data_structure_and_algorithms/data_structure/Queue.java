@@ -8,17 +8,17 @@ package data_structure_and_algorithms.data_structure;
  */
 public class Queue {
 
-    private int[] queue;
+    private Object[] queue;
     private int head;
     private int size;
 
     public Queue(int n) {
-        queue = new int[n];
+        queue = new Object[n];
         this.head = 0;
         this.size = 0;
     }
 
-    public int getSize(){
+    public int getSize() {
         return size;
     }
 
@@ -30,8 +30,7 @@ public class Queue {
         return size == queue.length;
     }
 
-    public void push(int data) {
-
+    public void push(Object data) {
         if (isFull()) {
             throw new RuntimeException("队列已满");
         }
@@ -42,7 +41,7 @@ public class Queue {
         queue[size - 1] = data;
     }
 
-    public int pop() {
+    public Object pop() {
         if (isEmpty()) {
             throw new RuntimeException("队列为空");
         }
