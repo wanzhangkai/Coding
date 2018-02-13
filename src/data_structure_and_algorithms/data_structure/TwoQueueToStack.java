@@ -10,12 +10,10 @@ public class TwoQueueToStack {
 
     private Queue queue1;
     private Queue queue2;
-    private int size;
 
     public TwoQueueToStack(int n) {
         queue1 = new Queue(n);
         queue2 = new Queue(n);
-        this.size = 0;
     }
 
     public void push(int data) {
@@ -25,7 +23,6 @@ public class TwoQueueToStack {
         if (queue1.isEmpty() && queue2.isEmpty()) {
 
         }
-        size++;
         queue1.push(data);
     }
 
@@ -64,8 +61,6 @@ public class TwoQueueToStack {
         for (int i = 0; i < 10; i++) {
             System.out.print(toStack.pop() + " ");
         }
-
-
 
     }
 }

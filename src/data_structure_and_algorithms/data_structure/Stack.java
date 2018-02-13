@@ -10,7 +10,7 @@ public class Stack {
 
     private int[] stack;
     private int top;
-    public int size;
+    private int size;
 
     public Stack(int n) {
         stack = new int[n];
@@ -24,6 +24,10 @@ public class Stack {
 
     public boolean isFull() {
         return size == stack.length;
+    }
+
+    public int getSize(){
+        return size;
     }
 
     public void push(int data) {
@@ -56,6 +60,13 @@ public class Stack {
         }
         System.out.println();
         System.out.println(stack.size);
+        for (int i = 0; i < 10; i++) {
+            stack.push(i);
+        }
+        System.out.println(stack.size);
+        for (int i = 0; i < 10; i++) {
+            System.out.print(stack.pop() + " ");
+        }
     }
 
 
