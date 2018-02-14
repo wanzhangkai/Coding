@@ -47,13 +47,15 @@ public class LinkedList<T> {
     }
 
     public void deleteByIndex(int index) {
-        for (int i = 0; i < index; i++) {
-            Node<T> temp = head;
-            if (i == index - 2) {
-                temp = temp.getNext();
-                temp.setNext(temp.getNext().getNext());
-                temp.getNext().setNext(null);
+        Node<T> temp = head;
+        int i = 1;
+        while (temp != null) {
+            if (i == index - 1) {
+                temp.setNext(temp.getNext().getNext());  //跳过第index个节点
+                break;
             }
+            temp = temp.getNext();
+            i++;
         }
     }
 
@@ -64,14 +66,17 @@ public class LinkedList<T> {
             temp = temp.getNext();
             System.out.print(a + " ");
         }
+        System.out.println();
     }
 
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 1; i <= 10; i++) {
             list.add(i);
         }
+        list.traversal();
+        list.deleteByIndex(6);
         list.traversal();
 
     }
