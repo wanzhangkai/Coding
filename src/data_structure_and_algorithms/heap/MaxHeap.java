@@ -81,7 +81,7 @@ public class MaxHeap<Item extends Comparable> {
     //********************
     //* 最大堆核心辅助函数
     //********************
-    private void shiftUp(int k) {
+    private void shiftUp(int k)        {
 
         while (k > 1 && data[k / 2].compareTo(data[k]) < 0) {
             swap(k, k / 2);
