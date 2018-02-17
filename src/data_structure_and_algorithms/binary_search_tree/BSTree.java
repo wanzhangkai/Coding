@@ -34,4 +34,28 @@ public class BSTree<Key extends Comparable<Key>, Value> {
         return count;
     }
 
+    // 向二分搜索树中插入一个新的(key, value)数据对
+    public void insert(Key key, Value value){
+        root = insert(root, key, value);
+    }
+
+    // 向以node为根的二分搜索树中, 插入节点(key, value), 使用递归算法
+    // 返回插入新节点后的二分搜索树的根
+    private Node insert(Node node, Key key, Value value){
+
+        if( node == null ){
+            count ++;
+            return new Node(key, value);
+        }
+
+        if( key.compareTo(node.key) == 0 )
+            node.value = value;
+        else if( key.compareTo(node.key) < 0 )
+            node.left = insert( node.left , key, value);
+        else    // key > node->key
+            node.right = insert( node.right, key, value);
+
+        return node;
+    }
+
 }
