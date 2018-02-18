@@ -58,4 +58,33 @@ public class BSTree<Key extends Comparable<Key>, Value> {
         return node;
     }
 
+    // 查看以node为根的二分搜索树中是否包含键值为key的节点, 使用递归算法
+    private boolean contain(Node node, Key key){
+
+        if( node == null )
+            return false;
+
+        if( key.compareTo(node.key) == 0 )
+            return true;
+        else if( key.compareTo(node.key) < 0 )
+            return contain( node.left , key );
+        else // key > node->key
+            return contain( node.right , key );
+    }
+
+    // 在以node为根的二分搜索树中查找key所对应的value, 递归算法
+    // 若value不存在, 则返回NULL
+    private Value search(Node node, Key key){
+
+        if( node == null )
+            return null;
+
+        if( key.compareTo(node.key) == 0 )
+            return node.value;
+        else if( key.compareTo(node.key) < 0 )
+            return search( node.left , key );
+        else // key > node->key
+            return search( node.right, key );
+    }
+
 }
