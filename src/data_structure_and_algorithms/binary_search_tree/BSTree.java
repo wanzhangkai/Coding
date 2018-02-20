@@ -21,10 +21,46 @@ public class BSTree<Key extends Comparable<Key>, Value> {
         postOrder(root);
     }
 
+    //层序遍历 -- 一层一层按顺序遍历
     public void levelOrder() {
         levelOrder(root);
     }
 
+    public boolean isEmpty() {
+        return count == 0;
+    }
+
+    public int size() {
+        return count;
+    }
+
+    // 向二分搜索树中插入一个新的(key, value)数据对
+    public void insert(Key key, Value value) {
+        root = insert(root, key, value);
+    }
+
+    //确认是否有这个元素
+    public boolean contain(Key key) {
+        return contain(root, key);
+    }
+
+    public Key minimum() {
+        if (count != 0) {
+            Node minNode = minimum(root);
+            return minNode.key;
+        }
+        return null;
+    }
+
+    public Key maximum() {
+        if (count != 0) {
+            Node maxNode = maximum(root);
+            return maxNode.key;
+        }
+        return null;
+    }
+
+    //节点
     private class Node {
         private Key key;
         private Value value;
@@ -44,24 +80,15 @@ public class BSTree<Key extends Comparable<Key>, Value> {
     private Node root;  //根节点
     private int count;  //节点个数
 
+    //构造初始化
     public BSTree() {
         root = null;
         count = 0;
     }
 
-    public boolean isEmpty() {
-        return count == 0;
-    }
-
-    public int size() {
-        return count;
-    }
-
-    // 向二分搜索树中插入一个新的(key, value)数据对
-    public void insert(Key key, Value value) {
-        root = insert(root, key, value);
-    }
-
+    /***************
+     * 实现部分
+     **************/
     // 向以node为根的二分搜索树中, 插入节点(key, value), 使用递归算法
     // 返回插入新节点后的二分搜索树的根
     private Node insert(Node node, Key key, Value value) {
@@ -79,10 +106,6 @@ public class BSTree<Key extends Comparable<Key>, Value> {
             node.right = insert(node.right, key, value);
 
         return node;
-    }
-
-    public boolean contain(Key key) {
-        return contain(root, key);
     }
 
     // 查看以node为根的二分搜索树中是否包含键值为key的节点, 使用递归算法
@@ -168,6 +191,30 @@ public class BSTree<Key extends Comparable<Key>, Value> {
         }
     }
 
+    //返回以node为根的二分搜索树的最小键值所在的节点
+    private Node minimum(Node root) {
+//        if (root.left == null) {
+//            return root;
+//        }
+//        return minimum(root.left);
+
+        //非递归写法
+        Node temp = root;
+        while (temp.left != null) {
+            temp = temp.left;
+        }
+        return temp;
+    }
+
+    //返回以node为根的二分搜索树的最小键值所在的节点
+    private Node maximum(Node root) {
+        //非递归写法
+        Node temp = root;
+        while (temp.right != null) {
+            temp = temp.right;
+        }
+        return temp;
+    }
 
     // 测试二分搜索树
     public static void main(String[] args) {
