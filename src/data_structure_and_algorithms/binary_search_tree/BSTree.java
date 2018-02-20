@@ -1,5 +1,8 @@
 package data_structure_and_algorithms.binary_search_tree;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 /**
  * @author wanzhangkai@foxmail.com
  * @date 2018/2/16 22:08
@@ -16,6 +19,10 @@ public class BSTree<Key extends Comparable<Key>, Value> {
 
     public void postOrder() {
         postOrder(root);
+    }
+
+    public void levelOrder() {
+        levelOrder(root);
     }
 
     private class Node {
@@ -138,6 +145,29 @@ public class BSTree<Key extends Comparable<Key>, Value> {
             System.out.print(root.value + " ");
         }
     }
+
+    //层序遍历 -- 一层一层按顺序遍历
+    private void levelOrder(Node root) {
+
+        //使用LinkedList可以当作队列使用
+        LinkedList<Node> queue = new LinkedList<>();
+        queue.add(root);
+
+//        //使用Java自带Queue
+//        Queue<Node> queue = new java.util.LinkedList<>();
+//        queue.offer(root);
+        while (!queue.isEmpty()) {
+            Node node = queue.remove();
+            System.out.print(node.key + " ");
+            if (node.left != null) {
+                queue.add(node.left);
+            }
+            if (node.right != null) {
+                queue.add(node.right);
+            }
+        }
+    }
+
 
     // 测试二分搜索树
     public static void main(String[] args) {

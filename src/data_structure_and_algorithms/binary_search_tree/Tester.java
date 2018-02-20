@@ -107,10 +107,10 @@ public class Tester {
         bst.postOrder();
         System.out.println();
 
-//        // 测试二分搜索树的层序遍历 levelOrder
-//        System.out.println("levelOrder: ");
-//        bst.levelOrder();
-//        System.out.println();
+        // 测试二分搜索树的层序遍历 levelOrder
+        System.out.println("levelOrder: ");
+        bst.levelOrder();
+        System.out.println();
     }
 
 
