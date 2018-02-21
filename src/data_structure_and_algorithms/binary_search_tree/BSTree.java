@@ -245,8 +245,6 @@ public class BSTree<Key extends Comparable<Key>, Value> {
         if (node.left == null) {
             //递归最后一层返回：当左孩子为null时，
             //将右孩子临时保存，count--，返回右孩子给上一层并作为上一层的left。
-//            Node rightNode = node.right;
-//            node.right = null;   //?
             count--;
             return node.right;
         }
@@ -275,7 +273,7 @@ public class BSTree<Key extends Comparable<Key>, Value> {
         } else if (key.compareTo(node.key) > 0) {
             node.right = remove(node.right, key);
             return node;
-        } else { //key == node.key
+        } else {          //key == node.key
             if (node.left == null) {
                 count--;
                 return node.right;
@@ -286,7 +284,8 @@ public class BSTree<Key extends Comparable<Key>, Value> {
             }
             //最关键的一步：if node.left != null && node.right != null
             Node rightMin = new Node(minimum(node.right)); //取得右子树最小键值的Node信息，并用新节点保存
-            rightMin.left = node.left;
+            //这里一定要new一个新节点，不然只是简单的起别名下面的removeMin会把它删掉
+            rightMin.left = node.left;  //初始化新的节点的left
             rightMin.right = removeMin(node.right); //移除右子树的最小值，并且复制右子树的根给最小值
             // 上面removeMin已经count--了！
             return rightMin;
