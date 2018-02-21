@@ -1,7 +1,6 @@
 package data_structure_and_algorithms.binary_search_tree;
 
 import java.util.LinkedList;
-import java.util.Queue;
 
 /**
  * @author wanzhangkai@foxmail.com
@@ -44,6 +43,7 @@ public class BSTree<Key extends Comparable<Key>, Value> {
         return contain(root, key);
     }
 
+    //返回最小节点的键值
     public Key minimum() {
         if (count != 0) {
             Node minNode = minimum(root);
@@ -52,12 +52,27 @@ public class BSTree<Key extends Comparable<Key>, Value> {
         return null;
     }
 
+    //返回最大节点的键值
     public Key maximum() {
         if (count != 0) {
             Node maxNode = maximum(root);
             return maxNode.key;
         }
         return null;
+    }
+
+    //移除最小键值的节点
+    public void removeMin() {
+        removeMin(root);
+    }
+
+    //移除最大键值的节点
+    public void removeMax() {
+        removeMax(root);
+    }
+
+    public void remove(Key key) {
+        remove(root, key);
     }
 
     //节点
@@ -70,6 +85,13 @@ public class BSTree<Key extends Comparable<Key>, Value> {
             this.key = key;
             this.value = value;
             left = right = null;
+        }
+
+        public Node(Node node) {
+            this.key = node.key;
+            this.value = node.value;
+            this.left = node.left;
+            this.right = node.right;
         }
 
         private Value getValue() {
@@ -214,6 +236,61 @@ public class BSTree<Key extends Comparable<Key>, Value> {
             temp = temp.right;
         }
         return temp;
+    }
+
+    // 删除掉以node为根的二分搜索树中的最小节点
+    // 返回删除节点后新的二分搜索树的根,反悔的还是root
+    //递归删除有个问题：只能删除到root为止
+    private Node removeMin(Node node) {
+        if (node.left == null) {
+            //递归最后一层返回：当左孩子为null时，
+            //将右孩子临时保存，count--，返回右孩子给上一层并作为上一层的left。
+//            Node rightNode = node.right;
+//            node.right = null;   //?
+            count--;
+            return node.right;
+        }
+        node.left = removeMin(node.left);
+        return node;
+    }
+
+    // 删除掉以node为根的二分搜索树中的最大节点
+    // 返回删除节点后新的二分搜索树的根
+    private Node removeMax(Node node) {
+        if (node.right == null) {
+            count--;
+            return node.left;
+        }
+        node.right = removeMax(node.right);
+        return node;
+    }
+
+    private Node remove(Node node, Key key) {
+        if (node == null) {
+            return null;
+        }
+        if (key.compareTo(node.key) < 0) {
+            node.left = remove(node.left, key);
+            return node;
+        } else if (key.compareTo(node.key) > 0) {
+            node.right = remove(node.right, key);
+            return node;
+        } else { //key == node.key
+            if (node.left == null) {
+                count--;
+                return node.right;
+            }
+            if (node.right == null) {
+                count--;
+                return node.left;
+            }
+            //最关键的一步：if node.left != null && node.right != null
+            Node rightMin = new Node(minimum(node.right)); //取得右子树最小键值的Node信息，并用新节点保存
+            rightMin.left = node.left;
+            rightMin.right = removeMin(node.right); //移除右子树的最小值，并且复制右子树的根给最小值
+            // 上面removeMin已经count--了！
+            return rightMin;
+        }
     }
 
     // 测试二分搜索树
