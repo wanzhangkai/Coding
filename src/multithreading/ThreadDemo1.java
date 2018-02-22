@@ -8,6 +8,9 @@ package multithreading;
  */
 public class ThreadDemo1 {
 
+    //创建线程方式一：继承Thread
+    //Thread() implements Runnable
+    //实际上创建线程都要implements Runnable
     static class Thread1 extends Thread {
 
         public void run() {
@@ -33,6 +36,7 @@ public class ThreadDemo1 {
     }
 
     //notice the different between two pattern
+    //直接 implements Runnable
     static class Thread2 implements Runnable {
 
         @Override
@@ -65,6 +69,5 @@ public class ThreadDemo1 {
         thread1.start();
         thread2.start();
     }
-
 
 }
