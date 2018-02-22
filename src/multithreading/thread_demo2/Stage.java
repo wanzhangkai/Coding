@@ -1,6 +1,13 @@
 package multithreading.thread_demo2;
 
 /**
+ * 多线程Demo2
+ * 知识点：
+ * Thread.sleep(millis); 使当前线程休眠，单位毫秒
+ * join()会阻塞其他线程，让调用这个方法的线程先执行完
+ * yield()会让出cpu调度权，把下次调度机会让给其他线程
+ * volatile关键词，多个线程操作同一变量更安全
+ *
  * @author wanzhangkai@foxmail.com
  * @date 2018/2/22 20:28
  */
