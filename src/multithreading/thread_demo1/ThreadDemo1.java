@@ -1,4 +1,4 @@
-package multithreading;
+package multithreading.thread_demo1;
 
 /**
  * 多线程简单demo
