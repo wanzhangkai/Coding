@@ -1,7 +1,8 @@
 package multithreading.thread_demo2;
 
 /**
- * 多线程Demo2
+ * 多线程Demo2：
+ * “隋唐演义”
  * 知识点：
  * Thread.sleep(millis); 使当前线程休眠，单位毫秒
  * join()会阻塞其他线程，让调用这个方法的线程先执行完
