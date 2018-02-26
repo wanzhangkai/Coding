@@ -2,6 +2,7 @@ package multithreading.thread_demo3_racecondition;
 
 /**
  * “能量转移多线程系统”
+ *
  * @author wanzhangkai@foxmail.com
  * @date 2018/2/23 21:47
  */
@@ -31,7 +32,7 @@ public class EnergySystem {
      */
     public void transfer(int from, int to, double amount) {
 
-        //这里这个lockObj并没有做特殊处理
+        //通过lockObj锁实现同步
         synchronized (lockObj) {
             while (energyBoxes[from] < amount) {
                 try {
