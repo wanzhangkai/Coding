@@ -1,4 +1,4 @@
-package summary_of_knowledge;
+package summary_of_knowledge.exception_demo;
 
 /**
  * 异常举例
