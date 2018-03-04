@@ -116,5 +116,4 @@ public class Tree<T> {
         tree.traversalLeftNode(tree.createTree());
     }
 
-
 }

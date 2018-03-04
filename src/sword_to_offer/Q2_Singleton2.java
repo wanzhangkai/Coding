@@ -1,6 +1,12 @@
 package sword_to_offer;
 
 /**
+ * 饿汉模式加载慢，但运行时获取对象快，线程安全；
+ * 懒汉模式加载快，但运行获取对象慢，线程不安全
+ * （可以加synchronized保证线程安全）。
+ */
+
+/**
  * 单例饿汉模式
  *
  * @author wanzhangkai@foxmail.com
@@ -15,7 +21,7 @@ public class Q2_Singleton2 {
     private Q2_Singleton2() {
     }
 
-    //加了synchronized来同步
+    //加了synchronized来同步，来保证线程安全
     public synchronized static Q2_Singleton2 getInstance() {
         if (instance == null) {
             //他很懒，如果实例为空他才new一个
