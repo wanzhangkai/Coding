@@ -42,16 +42,13 @@ public class Q5_printListFromTailToHead {
 
     //用递归
     ArrayList<Integer> arrayList = new ArrayList<>();
-    public  ArrayList<Integer> print2(ListNode listNode) {
-        while (listNode != null){
+
+    public ArrayList<Integer> print2(ListNode listNode) {
+        while (listNode != null) {
             print2(listNode.next);
             arrayList.add(listNode.value);
         }
-        return  arrayList;
-    }
-
-    public static void main(String[] args) {
-
+        return arrayList;
     }
 
 }

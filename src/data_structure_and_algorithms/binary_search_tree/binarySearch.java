@@ -24,7 +24,6 @@ public class BinarySearch {
     }
 
     public static void main(String[] args) {
-
         Integer[] arr = new Integer[100];
         int j = 50;
         for (int i = 0; i < 100; i++) {
@@ -35,4 +34,5 @@ public class BinarySearch {
         int a = BinarySearch.binarySearch(arr2, 1);
         System.out.println(a);
     }
+
 }
