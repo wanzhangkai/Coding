@@ -11,4 +11,43 @@ package sword_to_offer;
  */
 public class Q9_JumpFloor {
 
+
+    static int solution(int n) {
+        if (n < 0) {
+            return -1;
+        }
+
+        if (n == 1 || n == 2) {
+            return n;
+        }
+
+        int sum = 0;
+        int a = 1;
+        int b = 2;
+
+        for (int i = 0; i < n - 2; i++) {
+            sum = a + b;
+            a = b;
+            b = sum;
+        }
+        return sum;
+    }
+
+
+    //递归
+    static int fibonacci(int n) {
+        if (n < 0) {
+            return 0;
+        }
+        if (n == 1 || n == 2) {
+            return n;
+        }
+        //当n==1时，递归返回1
+        if (n == 3) {
+            return n;
+        } else {
+            return fibonacci(n - 1) + fibonacci(n - 2);
+        }
+    }
+
 }
