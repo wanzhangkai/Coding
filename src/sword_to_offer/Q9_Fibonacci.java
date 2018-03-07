@@ -1,5 +1,8 @@
 package sword_to_offer;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 斐波那契数列
  * 大家都知道斐波那契数列，现在要求输入一个整数n，
@@ -48,10 +51,10 @@ public class Q9_Fibonacci {
         }
     }
 
-
     public static void main(String[] args) {
         System.out.println(solution(9));
         System.out.println(fibonacci(9));
+        List list = new ArrayList<>();
     }
 
 }
