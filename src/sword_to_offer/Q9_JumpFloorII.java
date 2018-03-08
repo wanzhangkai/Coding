@@ -1,9 +1,10 @@
 package sword_to_offer;
 
 /**
- * 变态跳台阶（牛客网的题）
+ * 变态跳台阶:
  * 一只青蛙一次可以跳上1级台阶，也可以跳上2级……它也可以跳上n级。
  * 求该青蛙跳上一个n级的台阶总共有多少种跳法。
+ * 思路：数学归纳法   f(n) = 2^(n-1)
  *
  * @author wanzhangkai@foxmail.com
  * @date 2018/3/8 0:27
@@ -36,6 +37,5 @@ public class Q9_JumpFloorII {
             return 2 * solution2(target - 1);
         }
     }
-
 
 }

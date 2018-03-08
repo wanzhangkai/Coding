@@ -27,7 +27,8 @@ public class Q8_minNumberInRotateArray {
             if (right - left == 1) {
                 return array[right];
             }
-            mid = left + (right - left) / 2;
+            //右移1比 /2 效率高
+            mid = left + ((right - left) >> 1);
             //当mid定位在左侧递增范围内时，将范围缩小
             if (array[left] <= array[mid]) {
                 left = mid;
