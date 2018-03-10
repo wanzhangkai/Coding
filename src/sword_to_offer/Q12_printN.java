@@ -10,10 +10,24 @@ package sword_to_offer;
  */
 public class Q12_printN {
 
-    public void solution(int num){
+    public static void solution(int num) {
 
-
-
+        int i = 0;
+        int tem = 1;
+        while (i < num) {
+            tem = tem * 10;
+            i++;
+        }
+        for (i = 1; i < tem; i++) {
+            System.out.print(i+" ");
+        }
     }
+
+    public static void main(String[] args) {
+        solution(2);
+    }
+
+
+
 
 }
