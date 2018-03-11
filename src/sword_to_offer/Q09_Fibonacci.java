@@ -11,7 +11,7 @@ import java.util.List;
  * @author wanzhangkai@foxmail.com
  * @date 2018/3/6 16:29
  */
-public class Q9_Fibonacci {
+public class Q09_Fibonacci {
 
     //迭代
     public static int solution(int n) {

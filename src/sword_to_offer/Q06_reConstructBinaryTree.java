@@ -12,7 +12,7 @@ import java.util.Arrays;
  * @author wanzhangkai@foxmail.com
  * @date 2018/3/5 17:21
  */
-public class Q6_reConstructBinaryTree {
+public class Q06_reConstructBinaryTree {
 
     //先写一个树节点
     class TreeNode {

@@ -11,7 +11,7 @@ package sword_to_offer;
  * @author wanzhangkai@foxmail.com
  * @date 2018/3/6 10:32
  */
-public class Q8_minNumberInRotateArray {
+public class Q08_minNumberInRotateArray {
 
     //使用二分查找
     int solution(int[] array) {

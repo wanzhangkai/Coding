@@ -10,7 +10,7 @@ import java.util.Stack;
  * @author wanzhangkai@foxmail.com
  * @date 2018/3/4 16:39
  */
-public class Q5_printListFromTailToHead {
+public class Q05_printListFromTailToHead {
 
     //先建一个链表节点
     class ListNode {

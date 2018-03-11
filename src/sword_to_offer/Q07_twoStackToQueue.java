@@ -10,7 +10,7 @@ import java.util.Stack;
  * @author wanzhangkai@foxmail.com
  * @date 2018/3/6 9:55
  */
-public class Q7_twoStackToQueue {
+public class Q07_twoStackToQueue {
 
     private Stack<Integer> stack1 = new Stack<>();
     private Stack<Integer> stack2 = new Stack<>();

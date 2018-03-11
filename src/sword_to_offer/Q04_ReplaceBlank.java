@@ -9,7 +9,7 @@ package sword_to_offer;
  * @author wanzhangkai@foxmail.com
  * @date 2018/3/4 15:52
  */
-public class Q4_ReplaceBlank {
+public class Q04_ReplaceBlank {
 
     public static String replace(String str) {
         if (str == null) {

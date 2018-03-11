@@ -10,7 +10,7 @@ package sword_to_offer;
  * @author wanzhangkai@foxmail.com
  * @date 2018/3/4 14:40
  */
-public class Q3_Find {
+public class Q03_Find {
 
     public static boolean find(int[][] arr, int target) {
 

@@ -9,7 +9,7 @@ package sword_to_offer;
  * @author wanzhangkai@foxmail.com
  * @date 2018/3/7 21:38
  */
-public class Q9_JumpFloor {
+public class Q09_JumpFloor {
 
 
     static int solution(int n) {
