@@ -1,4 +1,4 @@
-package fun.ThoughtWorks_homework;
+package fun.thoughtWorks_homework;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -58,10 +58,6 @@ public class ThoughtWorksHomework {
         }
     }
 
-//    public static void lightLog() {
-//        lightLog(importMessageTest1());
-//    }
-
     //判断无人机当前状态
     public static List<Message> lightLog(List<Message> MessageList) {
         if (MessageList.get(0).offsetX != 0 && MessageList.get(0).offsetY != 0 && MessageList.get(0).offsetZ != 0) {
@@ -88,7 +84,7 @@ public class ThoughtWorksHomework {
 
     //响应指定序号来输出结果
     public static void printLightLog(int orderNum) {
-        List<Message> messages = lightLog(importMessageTest1());
+        List<Message> messages = lightLog(importMessageTest());
         //指定消息ID大于实际消息序列数量
         if (orderNum >= messages.size()) {
             System.out.println("Cannot find " + orderNum);
@@ -108,9 +104,8 @@ public class ThoughtWorksHomework {
         }
     }
 
-
-    //消息的输入样例
-    public static List<Message> importMessageTest1() {
+    //消息的输入样例,装入List容器
+    public static List<Message> importMessageTest() {
         Message message0 = new Message("plane1", 1, 1, 1);
         Message message1 = new Message("plane1", 1, 1, 1, 1, 2, 3);
         Message message2 = new Message("plane1", 2, 3, 4, 1, 1, 1);
