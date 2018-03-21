@@ -61,7 +61,6 @@ public class HeapSort {
         arr[k] = e;
     }
 
-
     private static void swap(Comparable[] arr, int a, int b) {
         Comparable t = arr[a];
         arr[a] = arr[b];

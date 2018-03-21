@@ -16,6 +16,7 @@ import java.util.Stack;
  */
 public class Q22_IsPopOrder {
 
+    //自己写的水水的解法
     public static boolean isPopOrder(int[] pushA, int[] popA) {
         if (pushA.length != popA.length) {
             return false;
@@ -56,6 +57,36 @@ public class Q22_IsPopOrder {
         return true;
     }
 
+    /**
+     * 比较好的解法
+     * 链接：https://www.nowcoder.com/questionTerminal/d77d11405cc7470d82554cb392585106
+     * 来源：牛客网
+     * 举例：
+     * 入栈1,2,3,4,5
+     * 出栈4,5,3,2,1
+     * 首先1入辅助栈，此时栈顶1≠4，继续入栈2
+     * 此时栈顶2≠4，继续入栈3
+     * 此时栈顶3≠4，继续入栈4
+     * 此时栈顶4＝4，出栈4，弹出序列向后一位，此时为5，,辅助栈里面是1,2,3
+     * 此时栈顶3≠5，继续入栈5
+     * 此时栈顶5=5，出栈5,弹出序列向后一位，此时为3，,辅助栈里面是1,2,3
+     */
+    public static boolean solution(int[] pushA, int[] popA) {
+        if (pushA.length == 0 || popA.length == 0) {
+            return false;
+        }
+        Stack<Integer> stack = new Stack<>();
+        int popIndex = 0;
+        for (int i = 0; i < pushA.length; i++) {
+            stack.push(pushA[i]);
+            while (!stack.empty() && stack.peek() == popA[popIndex]) {
+                stack.pop();
+                popIndex++;
+            }
+        }
+        return stack.empty();
+    }
+
     public static void main(String[] args) {
         int[] a = {1, 2, 3, 4, 5};
         int[] b = {1, 2, 3, 4, 5};
@@ -64,6 +95,9 @@ public class Q22_IsPopOrder {
         System.out.println(isPopOrder(a, b));
         System.out.println(isPopOrder(a, c));
         System.out.println(isPopOrder(a, d));
+        System.out.println(solution(a, b));
+        System.out.println(solution(a, c));
+        System.out.println(solution(a, d));
     }
 
 }
