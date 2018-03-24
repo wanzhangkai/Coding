@@ -28,7 +28,6 @@ public class Main {
             }
             return count;
         }
-
         return ((a.length() - b.length()) > 0) ? a.length() : b.length();
     }
 
@@ -53,7 +52,6 @@ public class Main {
             return 1;
         }
 
-
         int min = str.charAt(0) - '0';
         for (int i = 0; i < str.length(); i++) {
             if (min > (str.charAt(i) - '0')) {
@@ -64,6 +62,7 @@ public class Main {
             return 1;
         }
 
+
         return 1;
     }
 
@@ -73,19 +72,5 @@ public class Main {
         a = cin.next();
         System.out.println(solution2(a));
     }
-
-
-//    public static void main(String args[]) {
-//        Scanner cin = new Scanner(System.in);
-//        String a, b;
-////        while(cin.hasNextInt())
-////        {
-////            a = cin.next();
-////
-////        }
-//        a = cin.next();
-//        b = cin.next();
-//        System.out.println(solution(a, b));
-//    }
 
 }
