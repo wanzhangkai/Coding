@@ -14,9 +14,10 @@ public class Question1 {
 
     //O(n)
     public static List<String> solution(String str) {
-        if (str.length() == 0) {
+        if (str == null) {
             return null;
         }
+
         List<String> list = new ArrayList<>();
         StringBuilder sb = new StringBuilder();
 
