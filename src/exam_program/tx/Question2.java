@@ -13,17 +13,10 @@ public class Question2 {
         StringBuffer sb = new StringBuffer();
 
         for (int i = 0; i < str.length(); i++) {
-            StringBuffer tempSb = new StringBuffer();
-            tempSb.append(str.charAt(i));
-            for (int j = i + 1; j < str.length(); j++) {
-                if (str.charAt(j) < str.charAt(j - 1)) {
-                    break;
-                }
-                tempSb.append(str.charAt(j));
-            }
-            if (tempSb.length() >= sb.length()) {
-                sb = tempSb;
-            }
+
+
+
+
         }
         return sb.toString();
     }
