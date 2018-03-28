@@ -5,10 +5,7 @@ import interview.designpattern.task.CodingTask;
 
 import java.util.LinkedList;
 import java.util.List;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
+import java.util.concurrent.*;
 
 /**
  * 多线程示例
@@ -35,5 +32,8 @@ public class ExecutorTester {
 
         System.out.println("All tasks finished.");
         executor.shutdown(); // 关闭并回收线程。
+
+
+
     }
 }
