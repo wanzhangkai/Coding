@@ -14,6 +14,9 @@ public class Question1 {
 
     //O(n)
     public static List<String> solution(String str) {
+        if (str.length() == 0) {
+            return null;
+        }
         List<String> list = new ArrayList<>();
         StringBuilder sb = new StringBuilder();
 
@@ -28,29 +31,28 @@ public class Question1 {
                 i = j;
             }
             if (tempSb.length() == sb.length()) {
-                    sb = tempSb;
-                    list.add(tempSb.toString());
-            }
-            if (tempSb.length() > sb.length()){
                 sb = tempSb;
-                list.clear();
+                list.add(tempSb.toString());
+            }
+            if (tempSb.length() > sb.length()) {
+                sb = tempSb;
+                list.clear();   //如果后面有更长的则清空list
                 list.add(tempSb.toString());
             }
         }
         return list;
     }
 
-
     public static void main(String[] args) {
         String a = "adgcefhkbp";
         List<String> s = solution(a);
-        for(String i : s){
+        for (String i : s) {
             System.out.println(i);
         }
 
         String b = "abedkfghcp";
         List<String> s2 = solution(b);
-        for(String i : s2){
+        for (String i : s2) {
             System.out.println(i);
         }
     }
