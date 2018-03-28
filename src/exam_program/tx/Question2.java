@@ -15,15 +15,14 @@ public class Question2 {
         for (int i = 0; i < str.length(); i++) {
 
 
-
-
         }
         return sb.toString();
     }
 
     public static void main(String[] args) {
-        String a = "adgcefhkbp";
-        System.out.println(solution(a));
+
+
+
     }
 
 
