@@ -9,6 +9,7 @@ package exam_program.tx;
  */
 public class Question1 {
 
+    //O(n)
     public static String solution1(String str) {
         StringBuffer sb = new StringBuffer();
 
@@ -20,6 +21,7 @@ public class Question1 {
                     break;
                 }
                 tempSb.append(str.charAt(j));
+                i = j;
             }
             if (tempSb.length() >= sb.length()) {
                 sb = tempSb;
@@ -27,6 +29,24 @@ public class Question1 {
         }
         return sb.toString();
     }
+
+    //O(n)
+//    public static String solution(String str) {
+//        StringBuffer sb = new StringBuffer();
+//        StringBuffer tempSb = new StringBuffer();
+//        for (int i = 0; i < str.length(); i++) {
+//            tempSb.append(str.charAt(i));
+//            if (str.charAt(i + 1) >= str.charAt(i)) {
+//                tempSb.append(str.charAt(i + 1));
+//            }
+//            if (tempSb.length() >= sb.length()){
+//                sb = tempSb;
+//            }
+//        }
+//        return sb.toString();
+//
+//
+//    }
 
     public static void main(String[] args) {
         String a = "adgcefhkbp";
