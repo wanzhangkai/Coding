@@ -3,6 +3,7 @@ package exam_program.finup;
 import java.util.Scanner;
 
 /**
+ * 凡普金科的两道题：
  * 给出三个正整数a,b和c，
  * 你可以在它们之间插入加号或者乘号以及括号将其变成一个表达式。
  * 比如给出数字1，2和3，你可以构造出：

@@ -199,9 +199,9 @@ public class Tester {
     }
 
     public static void main(String[] args) {
-//        Tester.test1();
-//        Tester.test2();
-//        Tester.test3();
+//        HundredChicken.test1();
+//        HundredChicken.test2();
+//        HundredChicken.test3();
         Tester.test4();
 
     }

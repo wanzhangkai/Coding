@@ -4,7 +4,7 @@ package exam_program.others;
  * @author wanzhangkai@foxmail.com
  * @date 2018/3/27 12:48
  */
-public class Tester {
+public class HundredChicken {
 
     //百鸡百钱问题
     public static void solution() {
