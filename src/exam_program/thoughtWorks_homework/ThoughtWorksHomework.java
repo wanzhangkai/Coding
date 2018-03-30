@@ -1,4 +1,4 @@
-package fun.thoughtWorks_homework;
+package exam_program.thoughtWorks_homework;
 
 import java.util.ArrayList;
 import java.util.List;

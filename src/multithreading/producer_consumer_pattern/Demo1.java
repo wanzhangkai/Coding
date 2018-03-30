@@ -1,5 +1,7 @@
 package multithreading.producer_consumer_pattern;
 
+import multithreading.blocking_queue_demo.BlockingQueueDemo;
+
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
@@ -15,9 +17,9 @@ import java.util.concurrent.LinkedBlockingQueue;
 public class Demo1 {
 
     static class Producer implements Runnable {
-        private final BlockingQueue sharedQueue;
+        private final BlockingQueueDemo sharedQueue;
 
-        public Producer(BlockingQueue sharedQueue) {
+        public Producer(BlockingQueueDemo sharedQueue) {
             this.sharedQueue = sharedQueue;
         }
 
@@ -35,9 +37,9 @@ public class Demo1 {
     }
 
     static class Consumer implements Runnable {
-        private final BlockingQueue sharedQueue;
+        private final BlockingQueueDemo sharedQueue;
 
-        public Consumer(BlockingQueue sharedQueue) {
+        public Consumer(BlockingQueueDemo sharedQueue) {
             this.sharedQueue = sharedQueue;
         }
 
@@ -56,7 +58,16 @@ public class Demo1 {
 
 
     public static void main(String[] args) {
-        BlockingQueue sharedQueue = new LinkedBlockingQueue<>();
+//        BlockingQueue sharedQueue = new LinkedBlockingQueue<>();
+//
+//        Thread prodThread = new Thread(new Producer(sharedQueue));
+//        Thread consThread = new Thread(new Consumer(sharedQueue));
+//
+//        prodThread.start();
+//        consThread.start();
+
+        //用自定义的阻塞队列来测试一下
+        BlockingQueueDemo sharedQueue = new BlockingQueueDemo();
 
         Thread prodThread = new Thread(new Producer(sharedQueue));
         Thread consThread = new Thread(new Consumer(sharedQueue));
