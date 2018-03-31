@@ -3,6 +3,8 @@ package exam_program.meituan;
 import java.util.Scanner;
 
 /**
+ * 2018美团春招笔试3道：
+ *
  * @author wanzhangkai@foxmail.com
  * @date 2018/3/22 18:42
  */
