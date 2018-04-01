@@ -1,5 +1,7 @@
 package exam_program.shenzhouxinxi;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -56,15 +58,26 @@ public class Main1 {
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
+
         while (in.hasNext()) {
-            int n = in.nextInt();
-            int[] arr = new int[n];
-            for (int i = 0; i < n; i++) {
-                arr[i] = in.nextInt();
+            String a = in.nextLine();
+            List<Integer> list = new ArrayList<>();
+            for (int i = 0; i < a.length(); i++) {
+                StringBuilder sb = new StringBuilder();
+                while (i < a.length() && a.charAt(i) != ' ') {
+                    sb.append(a.charAt(i));
+                    i++;
+                }
+                if (sb.length() != 0) {
+                    list.add(Integer.parseInt(sb.toString()));
+                }
             }
-            quickSort(arr);
-            for (int j = 0; j < n; j++) {
-                System.out.print(arr[j]);
+            int[] arr = new int[list.size()];
+            for (int i = 0; i < arr.length; i++) {
+                arr[i] = list.get(i);
+            }
+            for (int i = 0; i < arr.length; i++) {
+                System.out.print(quickSort(arr)[i]);
                 System.out.print(" ");
             }
         }
