@@ -9,6 +9,7 @@ import java.util.concurrent.*;
 
 /**
  * 多线程示例
+ * 线程池实现多线程
  *
  * @author wanzhangkai@foxmail.com
  * @date 2018/2/2 21:45

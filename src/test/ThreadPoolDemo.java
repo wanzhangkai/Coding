@@ -6,7 +6,7 @@ import java.util.concurrent.*;
  * @author wanzhangkai@foxmail.com
  * @date 2018/3/28 10:29
  */
-public class Tester {
+public class ThreadPoolDemo {
 
 
     public static void main(String[] args) throws ExecutionException, InterruptedException {
@@ -34,6 +34,5 @@ public class Tester {
         thread2.get();
 
     }
-
 
 }
