@@ -59,4 +59,12 @@ public class QuickSort {
         arr[b] = temp;
     }
 
+    public static void main(String[] args) {
+        Comparable[] arr = new Comparable[]{3, 4, 1, 2, 7};
+        sort(arr);
+        for (Comparable arrs : arr) {
+            System.out.print(arrs);
+        }
+    }
+
 }

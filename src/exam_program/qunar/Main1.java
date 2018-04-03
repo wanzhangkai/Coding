@@ -75,8 +75,6 @@ public class Main1 {
             }
             int count = solution(start, arr);
             System.out.println(count);
-
-
         }
 
 

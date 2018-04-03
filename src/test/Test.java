@@ -9,13 +9,16 @@ import java.util.List;
  */
 public class Test {
 
+    static boolean foo(char c) {
+        System.out.print(c);
+        return true;
+    }
+
     public static void main(String[] args) {
-        String a = "1 2 345 6 7";
-        List<Integer> list = new ArrayList<>();
-
-
-
-        list.add(Integer.parseInt(String.valueOf(a.charAt(1))) );
-        System.out.println(list.get(0));
+        int i = 0;
+        for (foo('A'); foo('B') && i < 2; foo('C')) {
+            i++;
+            foo('D');
+        }
     }
 }

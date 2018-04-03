@@ -33,6 +33,8 @@ public class Tester {
         Integer[] arr13 = Arrays.copyOf(arr1, arr1.length);
         Integer[] arr14 = Arrays.copyOf(arr1, arr1.length);
 
+        Integer[] arr15 = new Integer[]{25,11,-6,20,99,9};
+
 
 //        SortTestHelper.printArray(arr1);
 //        SortTestHelper.testSort(arr1);
@@ -67,8 +69,8 @@ public class Tester {
 //        SortTestHelper.printArray(arr8);
 
 //        SortTestHelper.printArray(arr9);
-        SortTestHelper.testSort0("data_structure_and_algorithms.sorting_advance.QuickSort", arr9);
-//        SortTestHelper.printArray(arr9);
+        SortTestHelper.testSort0("data_structure_and_algorithms.sorting_advance.QuickSort", arr15);
+        SortTestHelper.printArray(arr15);
 
 //        SortTestHelper.printArray(arr10);
         SortTestHelper.testSort0("data_structure_and_algorithms.sorting_advance.QuickSort2", arr10);
