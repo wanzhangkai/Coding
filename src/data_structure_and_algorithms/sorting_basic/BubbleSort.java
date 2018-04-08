@@ -2,7 +2,7 @@ package data_structure_and_algorithms.sorting_basic;
 
 /**
  * 冒泡排序：
- * 两两比较，将较大的放在后面，一轮后，再重新开始比较。
+ * 两两比较，将较大的放在最后面，一轮后，再重新开始比较。
  * 复杂度：O(n^2)
  *
  * @author wanzhangkai@foxmail.com
