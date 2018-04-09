@@ -6,22 +6,49 @@ package data_structure_and_algorithms.interview_handwriting;
  * @author wanzhangkai@foxmail.com
  * @date 2018/3/20 17:22
  */
-public class Sort {
+public class MySort {
 
-    //快速排序
-    private static void quickSort() {
-
-
+    //快速排序: 时间复杂度 O(nlogn) - 空间复杂度 O(log2n)~O(n) - 不稳定 - 交换排序
+    //三路快排
+    private static void quickSort(int[] arr, int l, int r) {
+        if (l >= r) {
+            return;
+        }
+        int i = l + 1;
+        int lt = l;
+        int rt = r + 1;
+        int temp;
+        int p = arr[l];
+        while (i < rt) {
+            if (arr[i] < p) {
+                temp = arr[i];
+                arr[i] = arr[lt + 1];
+                arr[lt + 1] = temp;
+                lt++;
+                i++;
+            } else if (arr[i] > p) {
+                temp = arr[i];
+                arr[i] = arr[rt - 1];
+                arr[rt - 1] = temp;
+                rt--;
+            } else {
+                i++;
+            }
+        }
+        temp = arr[l];
+        arr[l] = arr[lt];
+        arr[lt] = temp;
+        quickSort(arr, l, lt - 1);
+        quickSort(arr, rt, r);
     }
 
-    //归并排序
+
+    //归并排序：时间复杂度 O(nlogn) - 空间复杂度 O(n) - 稳定 - 归并排序
     private static void mergeSort() {
-
     }
 
-    //堆排序
+    //堆排序：时间复杂度 O(nlog2n) - 空间复杂度 O(1) - 不稳定 - 选择排序
     private static void heapSort() {
-
     }
 
     //直接插入排序: 时间复杂度 O(n^2) - 空间复杂度 O(1) - 稳定 - 插入排序
@@ -37,9 +64,20 @@ public class Sort {
         }
     }
 
-    //希尔排序:
-    private static void shellSort() {
-
+    //希尔排序: 时间复杂度 O(n^1.3) - 空间复杂度 O(1) - 不稳定 - 插入排序
+    private static void shellSort(int[] arr) {
+        int h = arr.length;
+        while (h > 0) {
+            h = h / 2;
+            for (int i = h; i < arr.length; i++) {
+                int temp = arr[i];
+                int j = i;
+                for (; j >= h && temp < arr[j - h]; j -= h) {
+                    arr[j] = arr[j - h];
+                }
+                arr[j] = temp;
+            }
+        }
     }
 
     //直接选择排序：时间复杂度 O(n^2) - 空间复杂度 O(1) - 不稳定 - 选择排序
@@ -77,7 +115,9 @@ public class Sort {
         int[] arr = {4, 5, 2, 3, 1};
 //        bubbleSort(arr);
 //        selectionSort(arr);
-        insertionSort(arr);
+//        insertionSort(arr);
+//        shellSort(arr);
+        quickSort(arr, 0, arr.length - 1);
         for (int arrs : arr) {
             System.out.print(arrs + " ");
         }
