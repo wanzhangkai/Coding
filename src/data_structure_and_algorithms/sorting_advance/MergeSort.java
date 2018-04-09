@@ -62,6 +62,9 @@ public class MergeSort {
 
     //带左右边界的插入排序，方便当(r - l <= 15)时使用插入排序更快
     public static void insertionSort(Comparable[] arr, int l, int r) {
+        if (arr.length == 0) {
+            return;
+        }
         for (int i = l + 1; i <= r; i++) {
             Comparable e = arr[i];
             int j;

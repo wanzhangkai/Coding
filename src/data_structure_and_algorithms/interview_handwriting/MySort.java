@@ -1,5 +1,7 @@
 package data_structure_and_algorithms.interview_handwriting;
 
+import java.util.Arrays;
+
 /**
  * 几大常用排序的手写精简版（面试需要）
  *
@@ -8,7 +10,7 @@ package data_structure_and_algorithms.interview_handwriting;
  */
 public class MySort {
 
-    //快速排序: 时间复杂度 O(nlogn) - 空间复杂度 O(log2n)~O(n) - 不稳定 - 交换排序
+    //快速排序: 时间复杂度 O(nlogn) - 空间复杂度 O(log2n)~O(n) - 不稳定 - 交换排序 - 分治算法
     //三路快排
     private static void quickSort(int[] arr, int l, int r) {
         if (l >= r) {
@@ -43,8 +45,37 @@ public class MySort {
     }
 
 
-    //归并排序：时间复杂度 O(nlogn) - 空间复杂度 O(n) - 稳定 - 归并排序
-    private static void mergeSort() {
+    //归并排序：时间复杂度 O(nlogn) - 空间复杂度 O(n) - 稳定 - 归并排序 - 分治算法
+    private static void mergeSort(int[] arr, int l, int r) {
+        if (l >= r) {
+            return;
+        }
+        int mid = l + (r - l) / 2;
+        mergeSort(arr, l, mid);
+        mergeSort(arr, mid + 1, r);
+        if (arr[mid] > arr[mid + 1]) {
+            merge(arr, l, mid, r);
+        }
+    }
+
+    private static void merge(int[] arr, int l, int mid, int r) {
+        int[] temp = Arrays.copyOfRange(arr, l, r + 1);
+        int i = l, j = mid + 1;
+        for (int k = l; k <= r; k++) {
+            if (i > mid) {
+                arr[k] = temp[j - l];
+                j++;
+            } else if (j > r) {
+                arr[k] = temp[i - l];
+                i++;
+            } else if (temp[i - l] < temp[j - l]) {
+                arr[k] = temp[i - l];
+                i++;
+            } else {
+                arr[k] = temp[j - l];
+                j++;
+            }
+        }
     }
 
     //堆排序：时间复杂度 O(nlog2n) - 空间复杂度 O(1) - 不稳定 - 选择排序
@@ -112,12 +143,13 @@ public class MySort {
     }
 
     public static void main(String[] args) {
-        int[] arr = {4, 5, 2, 3, 1};
+        int[] arr = {4, 5, 2, 3, 1, 11, 6, 12, 4, 2, 0};
 //        bubbleSort(arr);
 //        selectionSort(arr);
 //        insertionSort(arr);
 //        shellSort(arr);
-        quickSort(arr, 0, arr.length - 1);
+//        quickSort(arr, 0, arr.length - 1);
+        mergeSort(arr, 0, arr.length - 1);
         for (int arrs : arr) {
             System.out.print(arrs + " ");
         }
