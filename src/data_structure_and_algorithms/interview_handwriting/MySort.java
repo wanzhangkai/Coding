@@ -1,5 +1,7 @@
 package data_structure_and_algorithms.interview_handwriting;
 
+import data_structure_and_algorithms.heap.HeapSort;
+
 import java.util.Arrays;
 
 /**
@@ -10,7 +12,7 @@ import java.util.Arrays;
  */
 public class MySort {
 
-    //快速排序: 时间复杂度 O(nlogn) - 空间复杂度 O(log2n)~O(n) - 不稳定 - 交换排序 - 分治算法
+    //快速排序: 时间复杂度 O(nlogn) - 空间复杂度 O(logn)~O(n) - 不稳定 - 交换排序 - 分治算法
     //三路快排
     private static void quickSort(int[] arr, int l, int r) {
         if (l >= r) {
@@ -77,8 +79,38 @@ public class MySort {
         }
     }
 
-    //堆排序：时间复杂度 O(nlog2n) - 空间复杂度 O(1) - 不稳定 - 选择排序
-    private static void heapSort() {
+    //堆排序：时间复杂度 O(nlogn) - 空间复杂度 O(1) - 不稳定 - 选择排序
+    //原地堆排序，数组本身可以看成堆，不需要开辟额外空间
+    //先转化为最大堆，再转成升序
+    private static void heapSort(int[] arr) {
+        if (arr.length == 0)
+            return;
+        for (int i = (arr.length - 1) / 2; i >= 0; i--) {
+            shiftDown(arr, arr.length, i);
+        }
+        int temp;
+        for (int i = arr.length - 1; i > 0; i--) {
+            temp = arr[0];
+            arr[0] = arr[i];
+            arr[i] = temp;
+            shiftDown(arr, i, 0);
+        }
+    }
+
+    private static void shiftDown(int[] arr, int n, int index) {
+        int temp = arr[index];
+        while (2 * index + 1 < n) {
+            int i = 2 * index + 1;
+            if (i + 1 < n && arr[i + 1] > arr[i]) {
+                i++;
+            }
+            if (arr[index] >= arr[i]) {
+                break;
+            }
+            arr[index] = arr[i];
+            index = i;
+        }
+        arr[index] = temp;
     }
 
     //直接插入排序: 时间复杂度 O(n^2) - 空间复杂度 O(1) - 稳定 - 插入排序
@@ -148,7 +180,9 @@ public class MySort {
 //        insertionSort(arr);
 //        shellSort(arr);
 //        quickSort(arr, 0, arr.length - 1);
-        mergeSort(arr, 0, arr.length - 1);
+//        mergeSort(arr, 0, arr.length - 1);
+//        HeapSort.sort(arr);
+        heapSort(arr);
         for (int arrs : arr) {
             System.out.print(arrs + " ");
         }
