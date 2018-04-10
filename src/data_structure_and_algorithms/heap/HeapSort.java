@@ -33,7 +33,7 @@ public class HeapSort {
         while (2 * k + 1 < n) {
             int j = 2 * k + 1;   //在此轮循环中,data[k]和data[j]交换位置
             if (j + 1 < n && arr[j + 1].compareTo(arr[j]) > 0) {
-                j ++;
+                j++;
             }
             // data[j] 是 data[2*k]和data[2*k+1]中的最大值
             if (arr[k].compareTo(arr[j]) >= 0) {
@@ -46,10 +46,11 @@ public class HeapSort {
 
     private static void shiftDown2(Comparable[] arr, int n, int k) {
         Comparable e = arr[k];
+        //原地堆排是从数组的0索引开始的，所以是2*k+1
         while (2 * k + 1 < n) {
             int j = 2 * k + 1;   //在此轮循环中,data[k]和data[j]交换位置
             if (j + 1 < n && arr[j + 1].compareTo(arr[j]) > 0) {
-                j ++;
+                j++;
             }
             // data[j] 是 data[2*k]和data[2*k+1]中的最大值
             if (e.compareTo(arr[j]) >= 0) {
