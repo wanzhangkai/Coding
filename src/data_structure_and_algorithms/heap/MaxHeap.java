@@ -14,6 +14,7 @@ public class MaxHeap<Item extends Comparable> {
     protected int capacity;
 
     // 构造函数, 构造一个空堆, 可容纳capacity个元素
+    //从索引1开始存
     public MaxHeap(int capacity) {
         data = (Item[]) new Comparable[capacity + 1];
         count = 0;
