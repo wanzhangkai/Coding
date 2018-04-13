@@ -1,23 +1,24 @@
-package test;
+package summary_of_knowledge;
 
 /**
  * @author wanzhangkai@foxmail.com
  * @date 2018/4/12 19:21
  */
-public enum Tester {
+public enum EnumDemo {
 
     SUCCESS(0, "SUCCESS"),
     ERROR(0, "ERROR");
      final int code;
      final String desc;
 
-    Tester(int code, String desc) {
+    EnumDemo(int code, String desc) {
         this.code = code;
         this.desc = desc;
     }
 
     public static void main(String[] args) {
-        System.out.println(Tester.ERROR.desc);
+        System.out.println(EnumDemo.ERROR.desc);
+        System.out.println(EnumDemo.SUCCESS.code);
     }
 
 }

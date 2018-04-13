@@ -1,7 +1,5 @@
 package data_structure_and_algorithms.interview_handwriting;
 
-import data_structure_and_algorithms.heap.HeapSort;
-
 import java.util.Arrays;
 
 /**
